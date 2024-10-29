@@ -119,3 +119,21 @@ footer {
 .profile-text {
     max-width: 600px;
 }
+/* Contact Links Styling */
+.contact-links {
+    margin-top: 15px;
+}
+
+.contact-links a {
+    display: inline-block;
+    margin-right: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.contact-links a:hover {
+    color: #0056b3;
+}
