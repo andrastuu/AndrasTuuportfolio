@@ -142,15 +142,25 @@ footer {
 }
 /* Expandable Content Styling */
 .expandable-content {
-    visibility: hidden;  /* Hides content without removing space */
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease, visibility 0.3s ease;
+    max-height: 0;                /* Start with a max-height of 0 */
+    overflow: hidden;             /* Hide content initially */
+    opacity: 0;                   /* Make content invisible initially */
+    transition: max-height 0.5s ease, opacity 0.5s ease;
     margin-top: 0.5rem;
     color: #555;
 }
 
 .expandable-content.expanded {
-    visibility: visible;
-    height: auto;  /* Expands to fit content */
+    max-height: 200px;            /* Adjust based on expected content size */
+    opacity: 1;                   /* Make content fully visible */
 }
+.expandable-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.expandable-link:hover {
+    color: #0056b3;
+}
+
