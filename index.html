@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Data Scientist Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for expandable sections */
+        .expandable-content {
+            display: none;
+            margin-top: 0.5rem;
+            color: #555;
+        }
+        .expandable-link {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .expandable-link:hover {
+            color: #0056b3;
+        }
+    </style>
+    <script>
+        // JavaScript to toggle expandable content visibility
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
 </head>
 <body>
 
@@ -28,13 +51,34 @@
             <img src="images/profile.jpg" alt="András Tűű" class="profile-image">
             <div class="profile-text">
                 <h2>Profile</h2>
-                <p>Data Scientist with experience in Machine Learning, Deep Learning, Computer Vision, Image preprocessing, Data Cleaning, Data visualization, Data warehousing, Social media sentiment analysis and Transformer models</p>
+                <p>Data Scientist with expertise in machine learning, deep learning, and data analytics, specializing in Vision Transformers and CNNs for image classification. I develop high-accuracy models for galaxy classification using robust data cleaning and preprocessing. Skilled in social media sentiment analysis and data visualization, I use web scraping and Transformer models to create actionable dashboards in Power BI.</p>
+                <p>My experience includes work with <span class="expandable-link" onclick="toggleContent('climate-kic')">Climate-KIC</span> and <span class="expandable-link" onclick="toggleContent('bcg')">Boston Consulting Group (BCG)</span>, along with research through my <span class="expandable-link" onclick="toggleContent('masters')">Master’s</span> and <span class="expandable-link" onclick="toggleContent('bachelors')">Bachelor’s</span> theses.</p>
+
+                <!-- Expandable Sections -->
+                <div id="climate-kic" class="expandable-content">
+                    <p>At Climate-KIC, I led data transformation initiatives, developed web-scraping pipelines, and optimized workflows to support climate-focused startups, enabling more efficient data-driven operations.</p>
+                </div>
+                <div id="bcg" class="expandable-content">
+                    <p>At BCG, I consulted on strategic analysis projects across healthcare, finance, and M&A. I optimized data platforms to support faster decision-making, enhanced accessibility, and led cost reduction and healthcare reform initiatives.</p>
+                </div>
+                <div id="masters" class="expandable-content">
+                    <p>My Master’s thesis focused on applying Vision Transformers for galaxy morphological classification. By combining CNNs and advanced data preprocessing, I achieved significant classification accuracy improvements.</p>
+                </div>
+                <div id="bachelors" class="expandable-content">
+                    <p>In my Bachelor’s thesis, I conducted a sentiment analysis of meme stocks, using NLP and Transformer models to examine the influence of social media sentiment on stock prices, providing insights into public sentiment’s impact on financial markets.</p>
+                </div>
                 
-                <!-- Contact Links with Emojis -->
+                <!-- Contact Links with Logos -->
                 <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/andrás-tűű-99a0b61bb" target="_blank">🔗 LinkedIn</a>
-                    <a href="mailto:tuci60@gmail.com">✉️ Email</a>
-                    <a href="https://github.com/andrastuu" target="_blank">🐙 GitHub</a>
+                    <a href="https://www.linkedin.com/in/andrás-tűű-99a0b61bb" target="_blank">
+                        <img src="images/linkedin.png" alt="LinkedIn" class="contact-icon">
+                    </a>
+                    <a href="mailto:tuci60@gmail.com">
+                        <img src="images/email.png" alt="Email" class="contact-icon">
+                    </a>
+                    <a href="https://github.com/andrastuu" target="_blank">
+                        <img src="images/github.png" alt="GitHub" class="contact-icon">
+                    </a>
                 </div>
             </div>
         </section>
