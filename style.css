@@ -126,14 +126,18 @@ footer {
 
 .contact-links a {
     display: inline-block;
-    margin-right: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.2s ease;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
 }
 
 .contact-links a:hover {
-    color: #0056b3;
+    transform: scale(1.1);
 }
+
+/* Resize Contact Icons */
+.contact-icon {
+    width: 20px; /* Adjusted size for smaller icons */
+    height: 20px;
+    vertical-align: middle;
+}
+
