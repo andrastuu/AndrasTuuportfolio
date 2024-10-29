@@ -96,3 +96,17 @@ footer {
     font-size: 0.9rem;
     color: #777;
 }
+/* Profile Image Styling */
+.profile-image {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.profile-image:hover {
+    filter: grayscale(0%);
+}
