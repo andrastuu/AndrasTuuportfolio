@@ -5,28 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Data Scientist Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Styling for expandable sections */
-        .expandable-content {
-            display: none;
-            margin-top: 0.5rem;
-            color: #555;
-        }
-        .expandable-link {
-            color: #007bff;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-        .expandable-link:hover {
-            color: #0056b3;
-        }
-    </style>
     <script>
         // JavaScript to toggle expandable content visibility
         function toggleContent(id) {
-            const content = document.getElementById(id);
-            content.style.display = content.style.display === "none" ? "block" : "none";
-        }
+    const content = document.getElementById(id);
+    content.classList.toggle("expanded");
+}
+
     </script>
 </head>
 <body>

@@ -140,4 +140,17 @@ footer {
     height: 20px;
     vertical-align: middle;
 }
+/* Expandable Content Styling */
+.expandable-content {
+    visibility: hidden;  /* Hides content without removing space */
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease, visibility 0.3s ease;
+    margin-top: 0.5rem;
+    color: #555;
+}
 
+.expandable-content.expanded {
+    visibility: visible;
+    height: auto;  /* Expands to fit content */
+}
