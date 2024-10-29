@@ -107,13 +107,13 @@ footer {
     width: 180px;
     height: auto;
     border-radius: 50%;
-    filter: grayscale(100%);
+    filter: grayscale(0%);
     margin-right: 20px;
     transition: filter 0.3s ease;
 }
 
 .profile-image:hover {
-    filter: grayscale(0%);
+    filter: grayscale(10%);
 }
 
 .profile-text {
