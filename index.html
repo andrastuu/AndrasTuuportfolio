@@ -4,76 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Data Scientist Portfolio</title>
-    <style>
-        /* Basic styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        nav {
-            background: #444;
-            display: flex;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #ddd;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 2rem;
-        }
-
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
         <h1>András Tűű</h1>
-        <p>Data Scientist | Amsterdam, Netherlands | +36306816056 | <a href="mailto:tuci60@gmail.com">tuci60@gmail.com</a></p>
-    </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cv.html">CV</a>
+            <a href="bachelors-thesis.html">Bachelor's Thesis</a>
+            <a href="masters-thesis.html">Master's Thesis</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+    </div>
 
-    <!-- Navigation menu -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="cv.html">CV</a>
-        <a href="bachelors-thesis.html">Bachelor's Thesis</a>
-        <a href="masters-thesis.html">Master's Thesis</a>
-        <a href="projects.html">Projects</a>
-    </nav>
-
-    <div class="container">
+    <!-- Main Content -->
+    <div class="main-content">
         <section id="profile">
             <h2>Profile</h2>
             <p>Dynamic Data Scientist with expertise in data analysis, machine learning, and project management, skilled in leading cross-functional teams and managing data platforms. Passionate about transforming data into actionable insights for decision-making.</p>
-            <a href="cv.html">View Full CV</a>
         </section>
 
         <section id="education">
@@ -83,7 +34,7 @@
             <p><strong>BSc in Business and Management</strong>, Corvinus University of Budapest, Hungary (2018 – 2022)</p>
             <p>Thesis: <a href="bachelors-thesis.html">"Meme Stocks and Reddit Influence on Market Trends"</a></p>
         </section>
-        
+
         <section id="projects">
             <h2>Key Projects</h2>
             <ul>
@@ -92,6 +43,10 @@
             </ul>
         </section>
     </div>
+
+    <footer>
+        &copy; 2023 András Tűű | Data Scientist
+    </footer>
 
 </body>
 </html>

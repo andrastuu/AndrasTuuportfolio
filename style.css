@@ -1,0 +1,98 @@
+/* General Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fdfdfd;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #333;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar nav a {
+    display: block;
+    color: #ccc;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.sidebar nav a:hover {
+    color: #fff;
+}
+
+/* Content Area */
+.main-content {
+    margin-left: 220px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+/* Typography */
+p, ul {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+}
