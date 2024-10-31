@@ -3,25 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master's Thesis | András Tűű</title>
+    <title>Master's Thesis Project | Galaxy Classification</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Master's Thesis</h1>
-    </header>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h1>András Tűű</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cv.html">CV</a>
+            <a href="bachelors-thesis.html">Bachelor's Thesis</a>
+            <a href="masters-thesis.html">Master's Thesis</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+    </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="cv.html">CV</a>
-        <a href="bachelors-thesis.html">Bachelor's Thesis</a>
-        <a href="projects.html">Projects</a>
-    </nav>
+    <!-- Main Content -->
+    <div class="main-content">
+        <section>
+            <h2>Master's Thesis Project: Galaxy Classification with CNN and ViT Models</h2>
+            <p>This project page provides details of my Master’s thesis, including the code and documentation for galaxy classification using CNN and ViT models.</p>
 
-    <section>
-        <h2>Exploring Vision Transformer Models for Galaxy Morphological Classification</h2>
-        <p>Summary of the Master's thesis on using Vision Transformers and CNNs to classify galaxy images...</p>
-    </section>
+            <h3>Abstract</h3>
+            <p>The amount of astronomical data collected by observatories has exponentially increased in recent years. Classifying astronomical objects is crucial for processing this data. This thesis contributes to galaxy classification by enhancing accuracy and examining the relationships between data quality, model performance, and observational advancements.</p>
+            <p>Datasets used include <strong>Galaxy10SDSS</strong>, <strong>Galaxy10DECals</strong>, and high-redshift samples of Galaxy10DECals. Preprocessing techniques like Supervised and Unsupervised Wiener Deconvolution, Chan-Vese segmentation, and Non-Local Means denoising were applied. Multi-class classification was performed with <strong>Convolutional Neural Networks (CNNs)</strong> and <strong>Vision Transformers (ViTs)</strong>. Generally, preprocessing improved model performance. ViT models achieved the best performance in most cases, though CNNs outperformed ViTs on high-redshift samples. Non-Local Means Denoising and Supervised Wiener Deconvolution were top preprocessing methods, with Supervised Wiener Deconvolution proving most efficient in terms of computation.</p>
+
+            <h3>Methodology</h3>
+            <ul>
+                <li><strong>Datasets:</strong> Galaxy10SDSS, Galaxy10DECals, and high-redshift samples.</li>
+                <li><strong>Preprocessing Techniques:</strong> Supervised and Unsupervised Wiener Deconvolution, Chan-Vese segmentation, Non-Local Means Denoising.</li>
+                <li><strong>Models Used:</strong> Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs).</li>
+                <li><strong>Key Findings:</strong> ViT models generally provided the best performance, except for high-redshift samples where CNNs performed better. Non-Local Means Denoising and Supervised Wiener Deconvolution were the best preprocessing techniques, with Supervised Wiener Deconvolution being the most computationally efficient.</li>
+            </ul>
+
+            <h3>Experimental Design</h3>
+            <p>Below is a preview of the experimental design used in this project.</p>
+            <img src="https://github.com/user-attachments/assets/711bed92-424d-4c25-a470-7cacd2ae0d58" alt="Experimental Design" width="600">
+
+            <h3>Data Previews</h3>
+            <p><strong>Original Images and Categories for Classification:</strong> The following images illustrate the original dataset images and categories used for classification.</p>
+            <img src="https://github.com/user-attachments/assets/d6c1f716-1040-4b4e-8fa0-e003d503e0ca" alt="Original Images and Categories" width="600">
+
+            <p><strong>Masks Applied During Preprocessing:</strong> Examples of masks applied during preprocessing are shown below.</p>
+            <img src="https://github.com/user-attachments/assets/7b0f3a4f-e910-474e-a372-778f032e6813" alt="Masks Applied During Preprocessing" width="600">
+
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2023 András Tűű | Data Scientist
+    </footer>
 
 </body>
 </html>
