@@ -6,29 +6,66 @@
     <title>András Tűű | Projects</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Styling for larger, elegant buttons */
-        .project-selection button {
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            position: fixed;
+            height: 100%;
+        }
+
+        .sidebar h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 0;
+        }
+
+        /* Project Dropdown Styling */
+        .project-selection {
+            margin-top: 20px;
+        }
+
+        .project-selection h3 {
             font-size: 1.2em;
-            padding: 12px 24px;
-            margin: 12px 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .project-selection button {
+            font-size: 1em;
+            padding: 10px;
+            margin: 5px 0;
             width: 100%;
-            background: linear-gradient(135deg, #110404, #f1f3f7); /* Gradient effect */
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
             border: none;
-            border-radius: 8px; /* Rounded corners */
+            border-radius: 8px;
             cursor: pointer;
             text-align: left;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .project-selection button:hover {
-            background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Darker gradient on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-            transform: translateY(-2px); /* Lift effect */
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
-        /* Project details styling */
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        /* Project Details Styling */
         .project-details {
             display: none;
             margin-top: 20px;
@@ -58,19 +95,20 @@
             <a href="masters-thesis.html">Master's Thesis</a>
             <a href="projects.html" class="active">Projects</a>
         </nav>
+
+        <!-- Project Dropdown Menu -->
+        <div class="project-selection">
+            <h3>Select a Project</h3>
+            <button onclick="showProject('galaxy-project')">Galaxy Morphological Classification</button>
+            <button onclick="showProject('meme-stock-project')">Meme Stock Sentiment Analysis</button>
+            <button onclick="showProject('url-scraper-project')">Company URL Scraper</button>
+        </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <section id="projects">
-            <h2>Key Projects</h2>
-
-            <!-- Project Titles for Selection -->
-            <div class="project-selection">
-                <button onclick="showProject('galaxy-project')">Galaxy Morphological Classification</button>
-                <button onclick="showProject('meme-stock-project')">Meme Stock Sentiment Analysis</button>
-                <button onclick="showProject('url-scraper-project')">Company URL Scraper</button>
-            </div>
+            <h2>Project Details</h2>
 
             <!-- Project Details -->
             <div id="galaxy-project" class="project-details">
