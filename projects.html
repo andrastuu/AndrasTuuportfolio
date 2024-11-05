@@ -31,22 +31,23 @@
             margin-bottom: 5px;
         }
 
-        /* Subtle button styling for project selection */
+        /* Styling for project selection buttons */
         .project-selection {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .project-selection h3 {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #555;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .project-selection button {
             font-size: 1em;
             padding: 10px 16px;
-            margin: 6px 0;
-            width: 100%;
             background-color: #e0e0e0;
             color: #333;
             border: none;
@@ -99,20 +100,20 @@
             <a href="masters-thesis.html">Master's Thesis</a>
             <a href="projects.html" class="active">Projects</a>
         </nav>
-
-        <!-- Project Dropdown Menu -->
-        <div class="project-selection">
-            <h3>Select a Project</h3>
-            <button onclick="showProject('galaxy-project')">Galaxy Morphological Classification</button>
-            <button onclick="showProject('meme-stock-project')">Meme Stock Sentiment Analysis</button>
-            <button onclick="showProject('url-scraper-project')">Company URL Scraper</button>
-        </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <section id="projects">
-            <h2>Project Details</h2>
+            <h2>Projects</h2>
+            
+            <!-- Project Selection Buttons on Main Page -->
+            <div class="project-selection">
+                <h3>Select a Project</h3>
+                <button onclick="showProject('galaxy-project')">Galaxy Morphological Classification</button>
+                <button onclick="showProject('meme-stock-project')">Meme Stock Sentiment Analysis</button>
+                <button onclick="showProject('url-scraper-project')">Company URL Scraper</button>
+            </div>
 
             <!-- Project Details -->
             <div id="galaxy-project" class="project-details">
