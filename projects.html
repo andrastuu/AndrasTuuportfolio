@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Projects</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for larger, elegant buttons */
+        .project-selection button {
+            font-size: 1.2em;
+            padding: 12px 24px;
+            margin: 12px 0;
+            width: 100%;
+            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient effect */
+            color: white;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-selection button:hover {
+            background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Darker gradient on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+            transform: translateY(-2px); /* Lift effect */
+        }
+
+        /* Project details styling */
+        .project-details {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
     <script>
         // JavaScript to toggle between projects
         function showProject(id) {
@@ -14,12 +43,6 @@
             
             // Display the selected project details
             document.getElementById(id).style.display = 'block';
-        }
-
-        // JavaScript to toggle expandable content within a project
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            content.classList.toggle("expanded");
         }
     </script>
 </head>
@@ -50,58 +73,49 @@
             </div>
 
             <!-- Project Details -->
-            <div id="galaxy-project" class="project-details" style="display:none;">
+            <div id="galaxy-project" class="project-details">
                 <h3>Galaxy Morphological Classification using Vision Transformers</h3>
                 <p>Developed a highly accurate model for classifying galaxies by morphology using Vision Transformers (ViTs). This project involved intensive data preprocessing, integration of CNNs for initial feature extraction, and the use of deep learning techniques to enhance model accuracy.</p>
-                <span class="expandable-link" onclick="toggleContent('galaxy-project-details')">Read more</span>
-                <div id="galaxy-project-details" class="expandable-content">
-                    <p>The model combines Vision Transformers and Convolutional Neural Networks to process large datasets and improve galaxy classification. This research contributes to advancements in astronomy by automating the process of galaxy identification.</p>
-                </div>
+                <p>The model combines Vision Transformers and Convolutional Neural Networks to process large datasets and improve galaxy classification. This research contributes to advancements in astronomy by automating the process of galaxy identification.</p>
             </div>
 
-            <div id="meme-stock-project" class="project-details" style="display:none;">
+            <div id="meme-stock-project" class="project-details">
                 <h3>Meme Stock Sentiment Analysis</h3>
                 <p>Analyzed the impact of social media sentiment on the stock market through sentiment analysis of popular "meme stocks." Used NLP and Transformer models to assess the influence of Reddit and Twitter sentiment on market movements.</p>
-                <span class="expandable-link" onclick="toggleContent('meme-stock-details')">Read more</span>
-                <div id="meme-stock-details" class="expandable-content">
-                    <p>This project utilized Transformer models and natural language processing tools like VADER and BERT to gather, process, and analyze social media data. The insights gained help to understand how public sentiment can drive financial decisions.</p>
-                </div>
+                <p>This project utilized Transformer models and natural language processing tools like VADER and BERT to gather, process, and analyze social media data. The insights gained help to understand how public sentiment can drive financial decisions.</p>
             </div>
 
-            <div id="url-scraper-project" class="project-details" style="display:none;">
+            <div id="url-scraper-project" class="project-details">
                 <h3>Company URL Scraper</h3>
                 <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. It reads a CSV file with company names, processes them, and outputs the first URL found for each company. The script uses the <code>requests</code> library for HTTP requests and <code>BeautifulSoup</code> for HTML parsing.</p>
-                <span class="expandable-link" onclick="toggleContent('url-scraper-details')">Read more</span>
-                <div id="url-scraper-details" class="expandable-content">
-                    <h4>Features</h4>
-                    <ul>
-                        <li>Cleans and processes company names to remove unwanted symbols.</li>
-                        <li>Randomizes User-Agent headers to mimic human-like requests and avoid getting blocked.</li>
-                        <li>Adds a delay between requests to avoid being flagged by DuckDuckGo.</li>
-                        <li>Outputs the URLs directly to the console.</li>
-                    </ul>
-                    <h4>Repository</h4>
-                    <p><a href="https://github.com/andrastuu/webscraping-solution" target="_blank">GitHub Repository</a></p>
-                    <h4>Prerequisites</h4>
-                    <ul>
-                        <li>Python 3.x</li>
-                        <li>Required Python libraries:
-                            <ul>
-                                <li><code>pandas</code></li>
-                                <li><code>requests</code></li>
-                                <li><code>beautifulsoup4</code></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <h4>Usage</h4>
-                    <ol>
-                        <li>Modify the File Path: Update the file path in the code: <code>df = pd.read_csv('path to your csv file')</code></li>
-                        <li>Run the Script: <code>python scraper.py</code></li>
-                        <li>Check the Output: The script will print each company name along with the first URL found from DuckDuckGo.</li>
-                    </ol>
-                    <h4>Disclaimer</h4>
-                    <p>This is a project to explore the limitations of anti-scraping mechanisms. Ethically and legally, web scraping can have consequences; this repository is for informational purposes only.</p>
-                </div>
+                <h4>Features</h4>
+                <ul>
+                    <li>Cleans and processes company names to remove unwanted symbols.</li>
+                    <li>Randomizes User-Agent headers to mimic human-like requests and avoid getting blocked.</li>
+                    <li>Adds a delay between requests to avoid being flagged by DuckDuckGo.</li>
+                    <li>Outputs the URLs directly to the console.</li>
+                </ul>
+                <h4>Repository</h4>
+                <p><a href="https://github.com/andrastuu/webscraping-solution" target="_blank">GitHub Repository</a></p>
+                <h4>Prerequisites</h4>
+                <ul>
+                    <li>Python 3.x</li>
+                    <li>Required Python libraries:
+                        <ul>
+                            <li><code>pandas</code></li>
+                            <li><code>requests</code></li>
+                            <li><code>beautifulsoup4</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Usage</h4>
+                <ol>
+                    <li>Modify the File Path: Update the file path in the code: <code>df = pd.read_csv('path to your csv file')</code></li>
+                    <li>Run the Script: <code>python scraper.py</code></li>
+                    <li>Check the Output: The script will print each company name along with the first URL found from DuckDuckGo.</li>
+                </ol>
+                <h4>Disclaimer</h4>
+                <p>This is a project to explore the limitations of anti-scraping mechanisms. Ethically and legally, web scraping can have consequences; this repository is for informational purposes only.</p>
             </div>
         </section>
     </div>
