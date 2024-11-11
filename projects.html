@@ -50,14 +50,65 @@
             display: none;
             margin-top: 20px;
         }
+
+        /* Image viewer styling */
+        .image-viewer {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .image-viewer img {
+            width: 100%;
+            max-width: 800px;
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+        }
+
+        .image-viewer img.zoomed {
+            transform: scale(1.5); /* Adjust scale for zoom level */
+            cursor: zoom-out;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .nav-button.prev {
+            left: 10px;
+        }
+
+        .nav-button.next {
+            right: 10px;
+        }
     </style>
     <script>
-        // JavaScript to toggle between projects
-        function showProject(id) {
-            const projects = document.querySelectorAll('.project-details');
-            projects.forEach(project => project.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
+        let currentImage = 1;
+
+        function showImage(index) {
+            const imageViewer = document.getElementById('image-viewer');
+            const images = ['images/image1.png', 'images/image2.png', 'images/image3.png'];
+            currentImage = (index + images.length) % images.length;
+            imageViewer.src = images[currentImage];
         }
+
+        function toggleZoom() {
+            const image = document.getElementById('image-viewer');
+            image.classList.toggle('zoomed');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("image-viewer").addEventListener("click", toggleZoom);
+        });
     </script>
 </head>
 <body>
@@ -92,13 +143,11 @@
             <div id="galaxy-project" class="project-details">
                 <h3>Galaxy Morphological Classification using Vision Transformers</h3>
                 <p>Developed a highly accurate model for classifying galaxies by morphology using Vision Transformers (ViTs). This project involved intensive data preprocessing, integration of CNNs for initial feature extraction, and the use of deep learning techniques to enhance model accuracy.</p>
-                <p>The model combines Vision Transformers and Convolutional Neural Networks to process large datasets and improve galaxy classification. This research contributes to advancements in astronomy by automating the process of galaxy identification.</p>
             </div>
 
             <div id="meme-stock-project" class="project-details">
                 <h3>Meme Stock Sentiment Analysis</h3>
                 <p>Analyzed the impact of social media sentiment on the stock market through sentiment analysis of popular "meme stocks." Used NLP and Transformer models to assess the influence of Reddit and Twitter sentiment on market movements.</p>
-                <p>This project utilized Transformer models and natural language processing tools like VADER and BERT to gather, process, and analyze social media data. The insights gained help to understand how public sentiment can drive financial decisions.</p>
             </div>
 
             <div id="url-scraper-project" class="project-details">
@@ -111,40 +160,12 @@
                 <h3>Annual Survey Analysis Dashboard (2022-2023 Comparison)</h3>
                 <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023, focusing on key metrics such as external funding, gender distribution, sectoral representation, and startup growth by cleantech sector. The dashboard helps stakeholders quickly identify trends, gaps, and progress across cleantech sectors, highlighting changes over time.</p>
                 
-                <!-- Embedded PDF viewer for the Annual Survey Analysis Dashboard -->
-                <h4>Embedded PDF of Dashboard</h4>
-                <div id="pdf-viewer" style="width: 100%; height: 600px; overflow-y: auto; border: 1px solid #ddd;"></div>
-
-                <!-- Updated PDF.js code for MacBook with .mjs files -->
-                <script type="module">
-                    import * as pdfjsLib from './pdfjs/pdf.mjs';
-
-                    pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.mjs';
-                    const url = '/Users/macbookpro/Documents/GitHub/testinggithubpages/AnnualSurvey22_23.pdf';  // Replace with the path to your PDF file
-
-                    // Load and display the PDF
-                    pdfjsLib.getDocument(url).promise.then(pdf => {
-                        const viewer = document.getElementById('pdf-viewer');
-                        
-                        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                            pdf.getPage(pageNum).then(page => {
-                                const scale = 1.2;  // Adjust scale to fit the layout
-                                const viewport = page.getViewport({ scale });
-
-                                const canvas = document.createElement('canvas');
-                                canvas.width = viewport.width;
-                                canvas.height = viewport.height;
-                                viewer.appendChild(canvas);
-
-                                const context = canvas.getContext('2d');
-                                page.render({
-                                    canvasContext: context,
-                                    viewport: viewport
-                                });
-                            });
-                        }
-                    });
-                </script>
+                <!-- Image viewer with navigation and zoom -->
+                <div class="image-viewer">
+                    <img id="image-viewer" src="image1.png" alt="Dashboard Screenshot" onclick="toggleZoom()">
+                    <button class="nav-button prev" onclick="showImage(currentImage - 1)">&#10094;</button>
+                    <button class="nav-button next" onclick="showImage(currentImage + 1)">&#10095;</button>
+                </div>
             </div>
         </section>
     </div>
