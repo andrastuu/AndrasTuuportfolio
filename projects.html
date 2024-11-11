@@ -79,6 +79,10 @@
             z-index: 1000;
         }
 
+        .lightbox.show {
+            display: flex;
+        }
+
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
@@ -129,7 +133,7 @@
             const mainImage = document.getElementById("image-viewer");
             
             lightboxImage.src = mainImage.src;  // Set lightbox image to current main image
-            lightbox.style.display = lightbox.style.display === "flex" ? "none" : "flex";
+            lightbox.classList.toggle("show");
         }
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -180,6 +184,28 @@
             <div id="url-scraper-project" class="project-details">
                 <h3>Company URL Scraper</h3>
                 <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. It reads a CSV file with company names, processes them, and outputs the first URL found for each company. The script uses the <code>requests</code> library for HTTP requests and <code>BeautifulSoup</code> for HTML parsing.</p>
+                <h4>Features</h4>
+                <ul>
+                    <li>Cleans and processes company names to remove unwanted symbols.</li>
+                    <li>Randomizes User-Agent headers to mimic human-like requests and avoid getting blocked.</li>
+                    <li>Adds a delay between requests to avoid being flagged by DuckDuckGo.</li>
+                    <li>Outputs the URLs directly to the console.</li>
+                </ul>
+                <h4>Repository</h4>
+                <p><a href="https://github.com/andrastuu/webscraping-solution" target="_blank">GitHub Repository</a></p>
+                <h4>Prerequisites</h4>
+                <ul>
+                    <li>Python 3.x</li>
+                    <li>Required Python libraries:
+                        <ul>
+                            <li><code>pandas</code></li>
+                            <li><code>requests</code></li>
+                            <li><code>beautifulsoup4</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Disclaimer</h4>
+                <p>This is a project to explore the limitations of anti-scraping mechanisms. Ethically and legally, web scraping can have consequences; this repository is for informational purposes only.</p>
             </div>
 
             <!-- New Project: Annual Survey Analysis Dashboard -->
