@@ -54,11 +54,8 @@
     <script>
         // JavaScript to toggle between projects
         function showProject(id) {
-            // Hide all project details
             const projects = document.querySelectorAll('.project-details');
             projects.forEach(project => project.style.display = 'none');
-            
-            // Display the selected project details
             document.getElementById(id).style.display = 'block';
         }
     </script>
@@ -88,6 +85,7 @@
                 <button onclick="showProject('galaxy-project')">Galaxy Morphological Classification</button>
                 <button onclick="showProject('meme-stock-project')">Meme Stock Sentiment Analysis</button>
                 <button onclick="showProject('url-scraper-project')">Company URL Scraper</button>
+                <button onclick="showProject('annual-survey-project')">Annual Survey Analysis Dashboard</button>
             </div>
 
             <!-- Project Details -->
@@ -106,29 +104,47 @@
             <div id="url-scraper-project" class="project-details">
                 <h3>Company URL Scraper</h3>
                 <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. It reads a CSV file with company names, processes them, and outputs the first URL found for each company. The script uses the <code>requests</code> library for HTTP requests and <code>BeautifulSoup</code> for HTML parsing.</p>
-                <h4>Features</h4>
-                <ul>
-                    <li>Cleans and processes company names to remove unwanted symbols.</li>
-                    <li>Randomizes User-Agent headers to mimic human-like requests and avoid getting blocked.</li>
-                    <li>Adds a delay between requests to avoid being flagged by DuckDuckGo.</li>
-                    <li>Outputs the URLs directly to the console.</li>
-                </ul>
-                <h4>Repository</h4>
-                <p><a href="https://github.com/andrastuu/webscraping-solution" target="_blank">GitHub Repository</a></p>
-                <h4>Prerequisites</h4>
-                <ul>
-                    <li>Python 3.x</li>
-                    <li>Required Python libraries:
-                        <ul>
-                            <li><code>pandas</code></li>
-                            <li><code>requests</code></li>
-                            <li><code>beautifulsoup4</code></li>
-                        </ul>
-                    </li>
-                </ul>
-                </ol>
-                <h4>Disclaimer</h4>
-                <p>This is a project to explore the limitations of anti-scraping mechanisms. Ethically and legally, web scraping can have consequences; this repository is for informational purposes only.</p>
+            </div>
+
+            <!-- New Project: Annual Survey Analysis Dashboard -->
+            <div id="annual-survey-project" class="project-details">
+                <h3>Annual Survey Analysis Dashboard (2022-2023 Comparison)</h3>
+                <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023, focusing on key metrics such as external funding, gender distribution, sectoral representation, and startup growth by cleantech sector. The dashboard helps stakeholders quickly identify trends, gaps, and progress across cleantech sectors, highlighting changes over time.</p>
+                
+                <!-- Embedded PDF viewer for the Annual Survey Analysis Dashboard -->
+                <h4>Embedded PDF of Dashboard</h4>
+                <div id="pdf-viewer" style="width: 100%; height: 600px; overflow-y: auto; border: 1px solid #ddd;"></div>
+
+                <script src="pdfjs/build/pdf.js"></script>
+                <script>
+                    const url = 'path/to/AnnualSurvey22_23.pdf';  // Replace with the path to your PDF file
+
+                    // Initialize PDF.js
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/build/pdf.worker.js';
+
+                    // Load and display the PDF
+                    pdfjsLib.getDocument(url).promise.then(pdf => {
+                        const viewer = document.getElementById('pdf-viewer');
+                        
+                        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                            pdf.getPage(pageNum).then(page => {
+                                const scale = 1.2;  // Adjust scale to fit the layout
+                                const viewport = page.getViewport({ scale });
+
+                                const canvas = document.createElement('canvas');
+                                canvas.width = viewport.width;
+                                canvas.height = viewport.height;
+                                viewer.appendChild(canvas);
+
+                                const context = canvas.getContext('2d');
+                                page.render({
+                                    canvasContext: context,
+                                    viewport: viewport
+                                });
+                            });
+                        }
+                    });
+                </script>
             </div>
         </section>
     </div>
