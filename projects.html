@@ -92,11 +92,18 @@
         }
     </style>
     <script>
-        let currentImage = 1;
+        // JavaScript to toggle between projects
+        function showProject(id) {
+            const projects = document.querySelectorAll('.project-details');
+            projects.forEach(project => project.style.display = 'none'); // Hide all projects
+            document.getElementById(id).style.display = 'block'; // Show selected project
+        }
 
+        // Image navigation and zoom functionality
+        let currentImage = 0;
         function showImage(index) {
             const imageViewer = document.getElementById('image-viewer');
-            const images = ['images/image1.png', 'images/image2.png', 'images/image3.png'];
+            const images = ['images/image1.png', 'images/image2.png', 'images/image3.png'];  // Adjusted paths
             currentImage = (index + images.length) % images.length;
             imageViewer.src = images[currentImage];
         }
@@ -162,7 +169,7 @@
                 
                 <!-- Image viewer with navigation and zoom -->
                 <div class="image-viewer">
-                    <img id="image-viewer" src="image1.png" alt="Dashboard Screenshot" onclick="toggleZoom()">
+                    <img id="image-viewer" src="images/image1.png" alt="Dashboard Screenshot" onclick="toggleZoom()">
                     <button class="nav-button prev" onclick="showImage(currentImage - 1)">&#10094;</button>
                     <button class="nav-button next" onclick="showImage(currentImage + 1)">&#10095;</button>
                 </div>
