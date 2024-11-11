@@ -115,12 +115,12 @@
                 <h4>Embedded PDF of Dashboard</h4>
                 <div id="pdf-viewer" style="width: 100%; height: 600px; overflow-y: auto; border: 1px solid #ddd;"></div>
 
-                <script src="pdfjs/build/pdf.js"></script>
-                <script>
-                    const url = '/Users/macbookpro/Documents/GitHub/testinggithubpages/images/AnnualSurvey22_23.pdf';  // Replace with the path to your PDF file
+                <!-- Updated PDF.js code for MacBook with .mjs files -->
+                <script type="module">
+                    import * as pdfjsLib from './pdfjs/pdf.mjs';
 
-                    // Initialize PDF.js
-                    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/build/pdf.worker.js';
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.mjs';
+                    const url = '/Users/macbookpro/Documents/GitHub/testinggithubpages/AnnualSurvey22_23.pdf';  // Replace with the path to your PDF file
 
                     // Load and display the PDF
                     pdfjsLib.getDocument(url).promise.then(pdf => {
