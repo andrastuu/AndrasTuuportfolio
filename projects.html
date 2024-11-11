@@ -66,8 +66,23 @@
             cursor: zoom-in;
         }
 
-        .image-viewer img.zoomed {
-            transform: scale(1.5); /* Adjust scale for zoom level */
+        /* Full-screen lightbox effect */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
             cursor: zoom-out;
         }
 
@@ -81,6 +96,7 @@
             padding: 10px;
             cursor: pointer;
             font-size: 18px;
+            z-index: 1100;
         }
 
         .nav-button.prev {
@@ -92,7 +108,7 @@
         }
     </style>
     <script>
-        // JavaScript to toggle between projects
+        // Toggle between projects
         function showProject(id) {
             const projects = document.querySelectorAll('.project-details');
             projects.forEach(project => project.style.display = 'none'); // Hide all projects
@@ -108,13 +124,19 @@
             imageViewer.src = images[currentImage];
         }
 
-        function toggleZoom() {
-            const image = document.getElementById('image-viewer');
-            image.classList.toggle('zoomed');
+        // Full-screen lightbox functionality
+        function toggleLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImage = document.getElementById("lightbox-image");
+            const mainImage = document.getElementById("image-viewer");
+            
+            lightboxImage.src = mainImage.src;  // Set lightbox image to current main image
+            lightbox.style.display = lightbox.style.display === "flex" ? "none" : "flex";
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("image-viewer").addEventListener("click", toggleZoom);
+            document.getElementById("image-viewer").addEventListener("click", toggleLightbox);
+            document.getElementById("lightbox").addEventListener("click", toggleLightbox);  // Close on lightbox click
         });
     </script>
 </head>
@@ -165,16 +187,29 @@
             <!-- New Project: Annual Survey Analysis Dashboard -->
             <div id="annual-survey-project" class="project-details">
                 <h3>Annual Survey Analysis Dashboard (2022-2023 Comparison)</h3>
-                <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023, focusing on key metrics such as external funding, gender distribution, sectoral representation, and startup growth by cleantech sector. The dashboard helps stakeholders quickly identify trends, gaps, and progress across cleantech sectors, highlighting changes over time.</p>
+                <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023, focusing on key metrics such as external funding, gender distribution, sectoral representation, and startup growth by cleantech sector. It provides insights into trends, progress, and areas for growth within the cleantech industry.</p>
+                <h4>Key Insights:</h4>
+                <ul>
+                    <li><strong>Funding by Sector:</strong> Highlights sectors with the most external investment, such as Energy Storage and Clean Energy, enabling stakeholders to identify high-priority areas.</li>
+                    <li><strong>Average FTE by Sector:</strong> Displays workforce distribution across sectors like Clean Industry, indicating sector growth and employment trends.</li>
+                    <li><strong>Geographic Spread:</strong> Shows regional involvement in cleantech, useful for understanding market engagement and investment distribution.</li>
+                    <li><strong>Technology Readiness:</strong> Categorizes startups by Technology Readiness Levels, showcasing maturity from early development to full operations.</li>
+                    <li><strong>Gender Distribution:</strong> Offers demographic insights across cleantech programs, supporting diversity and representation analysis.</li>
+                </ul>
                 
                 <!-- Image viewer with navigation and zoom -->
                 <div class="image-viewer">
-                    <img id="image-viewer" src="images/image1.png" alt="Dashboard Screenshot" onclick="toggleZoom()">
+                    <img id="image-viewer" src="images/image1.png" alt="Dashboard Screenshot" onclick="toggleLightbox()">
                     <button class="nav-button prev" onclick="showImage(currentImage - 1)">&#10094;</button>
                     <button class="nav-button next" onclick="showImage(currentImage + 1)">&#10095;</button>
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Full-screen Lightbox for image viewing -->
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-image" src="" alt="Full-size Dashboard Screenshot">
     </div>
 
     <footer>
