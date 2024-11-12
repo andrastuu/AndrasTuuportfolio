@@ -119,6 +119,18 @@
         }
 
         // Image navigation and lightbox functionality
+        let currentDashboardImage = 0;
+        function showDashboardImage(index) {
+            const dashboardViewer = document.getElementById('dashboard-viewer');
+            const dashboardImages = [
+                'images/avoideddb1.png',
+                'images/avoideddb2.png',
+                'images/avoideddb3.png',
+                'images/avoideddb4.png'
+            ];
+            currentDashboardImage = (index + dashboardImages.length) % dashboardImages.length;
+            dashboardViewer.src = dashboardImages[currentDashboardImage];
+        }
         let currentImage = 0;
         function showImage(index) {
             const imageViewer = document.getElementById('image-viewer');
