@@ -1,0 +1,103 @@
+/* Styling for project selection buttons */
+.project-selection {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-selection h3 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.project-selection button {
+    font-size: 1em;
+    padding: 10px 16px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.project-selection button:hover {
+    background-color: #d5d5d5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+/* Project Details Styling */
+.project-details {
+    display: none;
+    margin-top: 20px;
+}
+
+/* Image viewer styling */
+.image-viewer {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.image-viewer img {
+    width: 100%;
+    max-width: 800px;
+    cursor: pointer;
+}
+
+/* Full-screen lightbox effect */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    cursor: pointer;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1100;
+}
+
+.nav-button.prev {
+    left: 10px;
+}
+
+.nav-button.next {
+    right: 10px;
+}
