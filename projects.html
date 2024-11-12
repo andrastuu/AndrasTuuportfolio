@@ -168,14 +168,16 @@
                 <button onclick="showProject('meme-stock-project')">Meme Stock Sentiment Analysis</button>
                 <button onclick="showProject('url-scraper-project')">Company URL Scraper</button>
                 <button onclick="showProject('annual-survey-project')">Annual Survey Analysis Dashboard</button>
+                <button onclick="showProject('avoided-emissions-dashboard')">Avoided Emissions Dashboard</button>
             </div>
 
-            <!-- Project Details -->
+            <!-- Project Details for Galaxy Morphological Classification -->
             <div id="galaxy-project" class="project-details">
                 <h3>Galaxy Morphological Classification using Vision Transformers</h3>
                 <p>Developed a highly accurate model for classifying galaxies by morphology using Vision Transformers (ViTs). This project involved intensive data preprocessing, integration of CNNs for initial feature extraction, and the use of deep learning techniques to enhance model accuracy.</p>
             </div>
 
+            <!-- Project Details for Meme Stock Sentiment Analysis -->
             <div id="meme-stock-project" class="project-details">
                 <h3>Meme Stock Sentiment Analysis</h3>
                 <p>Analyzed the impact of social media sentiment on the stock market through sentiment analysis of popular "meme stocks." Used NLP and Transformer models to assess the influence of Reddit and Twitter sentiment on market movements.</p>
@@ -215,9 +217,7 @@
                 </div>
             </div>
 
-                        
-
-            <!-- New Project: Annual Survey Analysis Dashboard -->
+            <!-- Project Details for Annual Survey Analysis Dashboard -->
             <div id="annual-survey-project" class="project-details">
                 <h3>Annual Survey Analysis Dashboard (2022-2023 Comparison)</h3>
                 <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023, focusing on key metrics such as external funding, gender distribution, sectoral representation, and startup growth by cleantech sector. It provides insights into trends, progress, and areas for growth within the cleantech industry.</p>
@@ -237,12 +237,25 @@
                     <button class="nav-button next" onclick="showImage(currentImage + 1)">&#10095;</button>
                 </div>
             </div>
+
+            <!-- Project Details for Avoided Emissions Dashboard -->
+            <div id="avoided-emissions-dashboard" class="project-details">
+                <h3>Avoided Emissions Dashboard</h3>
+                <p>This dashboard provides insights into avoided greenhouse gas emissions, funding allocation, and gender distribution across cleantech programs. It enables stakeholders to visualize and assess emissions data, funding by sector, and demographic trends within the cleantech industry.</p>
+                
+                <!-- Image viewer with navigation and lightbox effect for Avoided Emissions Dashboard -->
+                <div class="image-viewer">
+                    <img id="dashboard-viewer" src="images/avoideddb1.png" alt="Avoided Emissions Dashboard Screenshot" onclick="toggleDashboardLightbox()">
+                    <button class="nav-button prev" onclick="showDashboardImage(currentDashboardImage - 1)">&#10094;</button>
+                    <button class="nav-button next" onclick="showDashboardImage(currentDashboardImage + 1)">&#10095;</button>
+                </div>
+            </div>
         </section>
     </div>
 
-    <!-- Full-screen Lightbox for image viewing -->
-    <div id="lightbox" class="lightbox">
-        <img id="lightbox-image" src="" alt="Full-size Dashboard Screenshot">
+    <!-- Full-screen Lightbox for Dashboard image viewing -->
+    <div id="dashboard-lightbox" class="lightbox">
+        <img id="dashboard-lightbox-image" src="" alt="Full-size Avoided Emissions Dashboard Screenshot">
     </div>
 
     <footer>
