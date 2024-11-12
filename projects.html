@@ -4,7 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Projects</title>
-    <link rel="stylesheet" href="/Users/macbookpro/Documents/GitHub/testinggithubpages/style2.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for project selection buttons */
+        .project-selection {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .project-selection h3 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .project-selection button {
+            font-size: 1em;
+            padding: 10px 16px;
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .project-selection button:hover {
+            background-color: #d5d5d5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        /* Project Details Styling */
+        .project-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Image viewer styling */
+        .image-viewer {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .image-viewer img {
+            width: 100%;
+            max-width: 800px;
+            cursor: pointer;
+        }
+
+        /* Full-screen lightbox effect */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            cursor: pointer;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 1100;
+        }
+
+        .nav-button.prev {
+            left: 10px;
+        }
+
+        .nav-button.next {
+            right: 10px;
+        }
+    </style>
     <script>
         // JavaScript to toggle between projects
         function showProject(id) {
@@ -78,30 +183,101 @@
                 <button onclick="showProject('avoided-emissions-dashboard')">Avoided Emissions Dashboard</button>
             </div>
 
-            <!-- Project Details for each project -->
+            <!-- Project Details for Galaxy Morphological Classification -->
             <div id="galaxy-project" class="project-details">
                 <h3>Galaxy Morphological Classification using Vision Transformers</h3>
-                <p>Developed a highly accurate model for classifying galaxies by morphology using Vision Transformers (ViTs).</p>
+                <p>Developed a highly accurate model for classifying galaxies by morphology using Vision Transformers (ViTs). This project involved intensive data preprocessing, integration of CNNs for initial feature extraction, and the use of deep learning techniques to enhance model accuracy.</p>
             </div>
 
+            <!-- Project Details for Meme Stock Sentiment Analysis -->
             <div id="meme-stock-project" class="project-details">
                 <h3>Meme Stock Sentiment Analysis</h3>
-                <p>Analyzed the impact of social media sentiment on the stock market through sentiment analysis of popular "meme stocks."</p>
+                <p>Analyzed the impact of social media sentiment on the stock market through sentiment analysis of popular "meme stocks." Used NLP and Transformer models to assess the influence of Reddit and Twitter sentiment on market movements.</p>
             </div>
 
+            <!-- Project Details for Company URL Scraper -->
             <div id="url-scraper-project" class="project-details">
                 <h3>Company URL Scraper</h3>
-                <p>This script scrapes URLs for a list of company names from DuckDuckGo search results, using the requests library and BeautifulSoup for HTML parsing.</p>
+                <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. It reads a CSV file with company names, processes them, and outputs the first URL found for each company. The script uses the <code>requests</code> library for HTTP requests and <code>BeautifulSoup</code> for HTML parsing.</p>
+                <h4>Features</h4>
+                <ul>
+                    <li>Cleans and processes company names to remove unwanted symbols.</li>
+                    <li>Randomizes User-Agent headers to mimic human-like requests and avoid getting blocked.</li>
+                    <li>Adds a delay between requests to avoid being flagged by DuckDuckGo.</li>
+                    <li>Outputs the URLs directly to the console.</li>
+                </ul>
+                <h4>Repository</h4>
+                <p><a href="https://github.com/andrastuu/webscraping-solution" target="_blank">GitHub Repository</a></p>
+                <h4>Prerequisites</h4>
+                <ul>
+                    <li>Python 3.x</li>
+                    <li>Required Python libraries:
+                        <ul>
+                            <li><code>pandas</code></li>
+                            <li><code>requests</code></li>
+                            <li><code>beautifulsoup4</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Disclaimer</h4>
+                <p>This is a project to explore the limitations of anti-scraping mechanisms. Ethically and legally, web scraping can have consequences; this repository is for informational purposes only.</p>
+
+                <!-- Screenshot of Results -->
+                <h4>Example Output Screenshot</h4>
+                <div class="image-viewer">
+                    <img src="images/scraper.png" alt="Company URL Scraper Results Screenshot" style="max-width: 100%; height: auto;">
+                </div>
             </div>
 
+            <!-- Project Details for Annual Survey Analysis Dashboard -->
             <div id="annual-survey-project" class="project-details">
                 <h3>Annual Survey Analysis Dashboard (2022-2023 Comparison)</h3>
-                <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023.</p>
+                <p>This dashboard visualizes data from the Annual Survey of 2022 and 2023, focusing on key metrics such as external funding, gender distribution, sectoral representation, and startup growth by cleantech sector. It provides insights into trends, progress, and areas for growth within the cleantech industry.</p>
+                <h4>Key Insights:</h4>
+                <ul>
+                    <li><strong>Funding by Sector:</strong> Highlights sectors with the most external investment, such as Energy Storage and Clean Energy, enabling stakeholders to identify high-priority areas.</li>
+                    <li><strong>Average FTE by Sector:</strong> Displays workforce distribution across sectors like Clean Industry, indicating sector growth and employment trends.</li>
+                    <li><strong>Geographic Spread:</strong> Shows regional involvement in cleantech, useful for understanding market engagement and investment distribution.</li>
+                    <li><strong>Technology Readiness:</strong> Categorizes startups by Technology Readiness Levels, showcasing maturity from early development to full operations.</li>
+                    <li><strong>Gender Distribution:</strong> Offers demographic insights across cleantech programs, supporting diversity and representation analysis.</li>
+                </ul>
+                
+                <!-- Image viewer with navigation and lightbox effect -->
+                <div class="image-viewer">
+                    <img id="image-viewer" src="images/image1.png" alt="Dashboard Screenshot" onclick="toggleLightbox()">
+                    <button class="nav-button prev" onclick="showImage(currentImage - 1)">&#10094;</button>
+                    <button class="nav-button next" onclick="showImage(currentImage + 1)">&#10095;</button>
+                </div>
             </div>
 
+            <!-- Project Details for Avoided Emissions Dashboard -->
             <div id="avoided-emissions-dashboard" class="project-details">
                 <h3>Avoided Emissions Dashboard</h3>
-                <p>This dashboard provides insights into GHG emissions reductions, funding allocations, and demographic distributions.</p>
+                <p>This dashboard provides insights into greenhouse gas (GHG) emissions reductions, funding allocations, and demographic distributions within cleantech initiatives. Key functionalities include:</p>
+                <ul>
+                    <li><strong>Filtering Options:</strong> Allows users to filter data by program, validation result, project type, year, and cleantech sector (e.g., Air & Environment, Clean Energy).</li>
+                    <li><strong>Total Metrics:</strong> Displays total avoided GHG emissions and total grants awarded, providing an overview of environmental impact and funding.</li>
+                    <li><strong>Tons Climate Impact Slider:</strong> Filters projects based on a threshold for avoided emissions, enabling a focus on high-impact initiatives.</li>
+                    <li><strong>Data Visualizations:</strong> 
+                        <ul>
+                            <li>Waterfall and bar charts display emissions and grant distributions by program and sector.</li>
+                            <li>Donut charts illustrate gender distribution in project leadership and funding allocation.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Geographic Distribution:</strong> A map highlights project locations across Europe, showing regional contributions to emissions reductions.</li>
+                    <li><strong>Emissions and Funding Analysis:</strong> Analyzes emissions avoided and grant cost-effectiveness by sector, offering insights on environmental and financial efficiency.</li>
+                    <li><strong>Unicorns:</strong> Identifies startups achieving over 100,000 tons of avoided emissions per year, with dedicated views for deeper analysis.</li>
+                    <li><strong>Gender Demographics:</strong> Provides gender breakdowns in project leadership roles and funding allocation, promoting transparency in diversity metrics.</li>
+                </ul>
+                <p>The Avoided Emissions Dashboard is a powerful tool for analyzing cleantech impact, helping stakeholders make data-driven decisions to optimize environmental and financial outcomes.</p>
+
+                
+                <!-- Image viewer with navigation and lightbox effect for Avoided Emissions Dashboard -->
+                <div class="image-viewer">
+                    <img id="dashboard-viewer" src="images/avoideddb1.png" alt="Avoided Emissions Dashboard Screenshot" onclick="toggleDashboardLightbox()">
+                    <button class="nav-button prev" onclick="showDashboardImage(currentDashboardImage - 1)">&#10094;</button>
+                    <button class="nav-button next" onclick="showDashboardImage(currentDashboardImage + 1)">&#10095;</button>
+                </div>
             </div>
         </section>
     </div>
