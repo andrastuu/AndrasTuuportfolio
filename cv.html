@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Curriculum Vitae</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // JavaScript to toggle expandable content visibility
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            content.classList.toggle("expanded");
-        }
-    </script>
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -28,84 +21,11 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <!-- Profile Section -->
-        <section class="profile-section">
-            <h2>Profile</h2>
-            <p>
-                Dynamic Data Scientist specializing in machine learning, deep learning, and data analytics. Expertise in Vision Transformers, CNNs, and data-driven decision-making with tools like Power BI. Skilled in automating workflows and analyzing complex datasets to deliver actionable insights.
-            </p>
-            <p>
-                My professional journey spans roles at <span class="expandable-link" onclick="toggleContent('climate-kic')">Climate-KIC</span> and <span class="expandable-link" onclick="toggleContent('bcg')">Boston Consulting Group (BCG)</span>, along with impactful projects from my <span class="expandable-link" onclick="toggleContent('masters')">Master’s</span> and <span class="expandable-link" onclick="toggleContent('bachelors')">Bachelor’s</span> theses.
-            </p>
-            <div id="climate-kic" class="expandable-content">
-                <p>Led data transformation initiatives at Climate-KIC, optimizing workflows, and automating processes to support climate-focused startups.</p>
-            </div>
-            <div id="bcg" class="expandable-content">
-                <p>At BCG, I consulted on strategic projects, optimized data platforms, and drove cost reduction and healthcare reforms.</p>
-            </div>
-            <div id="masters" class="expandable-content">
-                <p>My Master’s thesis improved galaxy classification using Vision Transformers and CNNs with advanced image preprocessing.</p>
-            </div>
-            <div id="bachelors" class="expandable-content">
-                <p>My Bachelor’s thesis analyzed the influence of social media sentiment on meme stock prices using NLP models.</p>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Programming:</strong> Python, SQL, R</li>
-                <li><strong>Libraries & Tools:</strong> numpy, pandas, tensorflow, keras, Power BI, Tableau</li>
-                <li><strong>Machine Learning:</strong> NLP, Neural Networks, Vision Transformers, Deep Learning</li>
-                <li><strong>Languages:</strong> English (Fluent), Hungarian (Native)</li>
-            </ul>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <h3>Data Scientist</h3>
-            <p><em>Climate-KIC, Amsterdam</em> - May 2023 – Present</p>
-            <ul>
-                <li>Managed data transformation projects and created Power BI dashboards for insights.</li>
-                <li>Automated data workflows, reducing manual efforts and enhancing efficiency.</li>
-            </ul>
-            <h3>Analyst</h3>
-            <p><em>Boston Consulting Group, Budapest</em> - June 2020 – March 2022</p>
-            <ul>
-                <li>Conducted strategic analyses across industries and optimized data platforms for decision-making.</li>
-                <li>Led healthcare reform and cost reduction initiatives for key clients.</li>
-            </ul>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h2>Education</h2>
-            <p><strong>MSc in Data Science and Society</strong>, Tilburg University, Netherlands (2022 – 2023)</p>
-            <p>Thesis: <a href="masters-thesis.html">"Exploring Vision Transformer Models for Galaxy Morphological Classification"</a></p>
-            <p><strong>BSc in Business and Management</strong>, Corvinus University of Budapest, Hungary (2018 – 2022)</p>
-            <p>Thesis: <a href="bachelors-thesis.html">"Meme Stocks and Reddit Influence on Market Trends"</a></p>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Key Projects</h2>
-            <div class="project-selection">
-                <button onclick="toggleContent('galaxy-project')">Galaxy Morphological Classification</button>
-                <div id="galaxy-project" class="expandable-content">
-                    <p>Improved galaxy classification using Vision Transformers and CNNs, with advanced preprocessing techniques.</p>
-                </div>
-                <button onclick="toggleContent('meme-stock-project')">Meme Stock Sentiment Analysis</button>
-                <div id="meme-stock-project" class="expandable-content">
-                    <p>Analyzed social media sentiment's impact on stock prices using NLP models.</p>
-                </div>
-                <button onclick="toggleContent('dashboard-project')">Avoided Emissions Dashboard</button>
-                <div id="dashboard-project" class="expandable-content">
-                    <p>Developed an interactive dashboard to analyze GHG emissions, funding allocations, and demographics for cleantech projects.</p>
-                </div>
-            </div>
-        </section>
+        <h2>Curriculum Vitae</h2>
+        <!-- Embedded PDF -->
+        <embed src="AndrasTuuCV.pdf" type="application/pdf" width="100%" height="600px" />
+        <!-- Download Link -->
+        <p><a href="AndrasTuuCV.pdf" download>Download CV</a></p>
     </div>
 
     <footer>
