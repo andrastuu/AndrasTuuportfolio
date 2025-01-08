@@ -3,110 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>András Tűű | Data Scientist Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        // JavaScript to toggle expandable content visibility
-        function toggleContent(id) {
-    const content = document.getElementById(id);
-    content.classList.toggle("expanded");
-}
-
-    </script>
+    <title>András Tűű | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        .header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .header .intro {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .tile {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .tile:hover {
+            transform: translateY(-5px);
+        }
+        .tile h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .tile a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 40px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <h1>András Tűű</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="cv.html">CV</a>
-            <a href="bachelors-thesis.html">Bachelor's Thesis</a>
-            <a href="masters-thesis.html">Master's Thesis</a>
-            <a href="projects.html">Projects</a>
-        </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        
-        <!-- Profile Section with Image and Text -->
-        <section class="profile-section">
-            <img src="images/profile.png" alt="András Tűű" class="profile-image">
-            <div class="profile-text">
-                <h2>Profile</h2>
-                <p>Data Scientist with expertise in machine learning, deep learning, and data analytics, specializing in Vision Transformers and CNNs for image classification. I have developed models for galaxy classification using image processing and masking methods. Furthermore, projects in social media sentiment analysis, with Large Language Models and lexical models. Utilizing web scraping to collect data and automatise long monotonous manual processes. Lastly, ability to create thorough and simplified dashboards in Power BI, to help promote data based decision making.</p>
-                <p>My experience includes work with <span class="expandable-link" onclick="toggleContent('climate-kic')">Climate-KIC</span> and <span class="expandable-link" onclick="toggleContent('bcg')">Boston Consulting Group (BCG)</span>, along with research through my <span class="expandable-link" onclick="toggleContent('masters')">Master’s</span> and <span class="expandable-link" onclick="toggleContent('bachelors')">Bachelor’s</span> theses.</p>
-
-                <!-- Expandable Sections -->
-                <div id="climate-kic" class="expandable-content">
-                    <p>At Climate-KIC, I led data transformation initiatives, developed web-scraping pipelines, and optimized workflows to support climate-focused startups, enabling more efficient data-driven operations.</p>
-                </div>
-                <div id="bcg" class="expandable-content">
-                    <p>At BCG, I consulted on strategic analysis projects across healthcare, finance, and M&A. I optimized data platforms to support faster decision-making, enhanced accessibility, and led cost reduction and healthcare reform initiatives.</p>
-                </div>
-                <div id="masters" class="expandable-content">
-                    <p>My Master’s thesis focused on applying Vision Transformers for galaxy morphological classification. By combining CNNs and advanced data preprocessing, I achieved significant classification accuracy improvements.</p>
-                </div>
-                <div id="bachelors" class="expandable-content">
-                    <p>In my Bachelor’s thesis, I conducted a sentiment analysis of meme stocks, using NLP and Transformer models to examine the influence of social media sentiment on stock prices, providing insights into public sentiment’s impact on financial markets.</p>
-                </div>
-                
-                <!-- Contact Links with Logos -->
-                <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/andrás-tűű-99a0b61bb" target="_blank">
-                        <img src="images/linkedin.png" alt="LinkedIn" class="contact-icon">
-                    </a>
-                    <a href="mailto:tuci60@gmail.com">
-                        <img src="images/email.png" alt="Email" class="contact-icon">
-                    </a>
-                    <a href="https://github.com/andrastuu" target="_blank">
-                        <img src="images/github.png" alt="GitHub" class="contact-icon">
-                    </a>
-                </div>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="images/profile.jpg" alt="Profile Picture">
+            <div class="intro">
+                <h1>András Tűű</h1>
+                <p>Data Scientist passionate about cleantech, analytics, and innovative solutions to environmental challenges.</p>
             </div>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Programming:</strong> Python, SQL, R</li>
-                <li><strong>Packages:</strong>
-                <ul>
-                    <li><strong>Data Manipulation:</strong> numpy, pandas, scikit</li>
-                    <li><strong>Machine Learning / Deep Learning:</strong> keras, tensorflow, sklearn, BERT, ViT, CNN</li>
-                    <li><strong>Computer Vision:</strong> opencv, skimage</li>
-                    <li><strong>Natural Language Processing (NLP):</strong> nltk, VADER, Text2Emotion</li>
-                    <li><strong>Data Visualization:</strong> matplotlib, seaborn</li>
-                </ul>
-                
-                <li><strong>Data Tools:</strong> Power BI, Tableau, Excel, Snowflake</li>
-                <li><strong>Machine Learning:</strong> NLP, Neural Networks, Vision Transformers, Deep Learning</li>
-                <li><strong>Image processing:</strong> Supervised and Unsupervised Wiener Deconvolution, Chan-Vese segmentation, and Non-Local Means denoising</li>
-                <li><strong>Languages:</strong> English (Fluent), Hungarian (Native)</li>
-            </ul>
-        </section>
+        </div>
 
-        <section id="education">
-            <h2>Education</h2>
-            <p><strong>MSc in Data Science and Society</strong>, Tilburg University, Netherlands (2022 – 2023)</p>
-            <p>Thesis: <a href="masters-thesis.html">"Exploring Vision Transformer Models for Galaxy Morphological Classification"</a></p>
-            <p><strong>BSc in Business and Management</strong>, Corvinus University of Budapest, Hungary (2018 – 2022)</p>
-            <p>Thesis: <a href="bachelors-thesis.html">"Meme Stocks and Reddit Influence on Market Trends"</a></p>
-        </section>
+        <!-- Tiles Section -->
+        <div class="tiles">
+            <div class="tile">
+                <h3>Bachelor's Thesis</h3>
+                <a href="#bachelors-thesis">View Details</a>
+            </div>
+            <div class="tile">
+                <h3>Master's Thesis</h3>
+                <a href="#masters-thesis">View Details</a>
+            </div>
+            <div class="tile">
+                <h3>Projects</h3>
+                <a href="#projects">View Details</a>
+            </div>
+        </div>
 
-        <section id="projects">
-            <h2>Key Projects</h2>
-            <ul>
-                <li><a href="projects.html">"Exploring Vision Transformer Models for Galaxy Morphological Classification"</a></li>
-                <li><a href="projects.html">Meme Stock Sentiment Analysis</a></li>
-            </ul>
-        </section>
+        <!-- Bachelor's Thesis Section -->
+        <div id="bachelors-thesis" class="section">
+            <h2>Bachelor's Thesis</h2>
+            <p>Your bachelor's thesis content goes here. Add descriptions, findings, and key takeaways.</p>
+        </div>
+
+        <!-- Master's Thesis Section -->
+        <div id="masters-thesis" class="section">
+            <h2>Master's Thesis</h2>
+            <p>Your master's thesis content goes here. Include an overview, objectives, and results.</p>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects" class="section">
+            <h2>Projects</h2>
+            <div>
+                <h3>Company URL Scraper</h3>
+                <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. <a href="projects.html#url-scraper">Read More</a></p>
+            </div>
+            <div>
+                <h3>Annual Survey Analysis Dashboard</h3>
+                <p>A dashboard comparing survey data from 2022 and 2023. <a href="projects.html#annual-survey">Read More</a></p>
+            </div>
+            <div>
+                <h3>Avoided Emissions Dashboard</h3>
+                <p>A dashboard showcasing cleantech emissions reductions and funding metrics. <a href="projects.html#avoided-emissions">Read More</a></p>
+            </div>
+        </div>
     </div>
-
-    <footer>
-        &copy; 2024 András Tűű | Data Scientist
-    </footer>
 
 </body>
 </html>
