@@ -12,11 +12,19 @@
             color: #333;
             background: #fff;
         }
+        .contact-links img {
+        filter: invert(0); /* Default for light mode */
+        transition: filter 0.3s; /* Smooth transition */
+        }
+
+        body.dark .contact-links img {
+            filter: invert(1); /* Inverts colors for dark mode */
+        }
 
         nav {
             position: fixed;
             top: 0;
-            width: 98%;
+            width: 97%;
             background: rgba(255, 255, 255, 0.9);
             padding: 1rem 2rem;
             display: flex;
