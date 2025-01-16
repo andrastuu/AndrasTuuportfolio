@@ -1,131 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>András Tűű | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #fff;
         }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        .header {
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 98%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background-color: #ffffff;
-            padding: 20px;
-            border-bottom: 2px solid #eee;
+            align-items: center;
+            z-index: 1000;
         }
-        .header img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
+
+        nav div {
+            font-weight: bold;
+            font-size: 1.2rem;
         }
-        .header .intro {
-            flex-grow: 1;
-            margin-left: 20px;
-        }
-        .tiles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .tile {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .tile:hover {
-            transform: translateY(-5px);
-        }
-        .tile h3 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-        .tile a {
+
+        nav a {
             text-decoration: none;
-            color: #007BFF;
+            margin: 0 1rem;
+            color: black;
             font-weight: bold;
         }
-        .section {
-            margin-top: 40px;
+
+        nav a:hover {
+            color: #007BFF;
         }
-        .section h2 {
-            border-bottom: 2px solid #007BFF;
-            padding-bottom: 10px;
+
+        .toggle-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: auto; /* Ensure it aligns properly */
+        }
+
+
+        .landing {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            background: #f4f4f4; /* Default fallback */
+            color: black;
+            text-align: center;
+        }
+
+        .landing h1 {
+            font-size: 3rem;
+            margin: 0.5rem 0;
+        }
+
+        .landing p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        #about {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            max-width: 900px;
+            margin: 3rem auto;
+            text-align: left;
+        }
+
+        #about .about-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 700px;
+        }
+
+        #about h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            text-align: left;
+        }
+
+        #about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-left: 1.5rem;
+            object-fit: cover;
+            flex-shrink: 0;
+            align-self: center;
+            transform: translateY(25%);
+        }
+
+        #about .about-text {
+            line-height: 1.6;
+            text-align: justify;
+            font-weight: normal; /* Make all text normal weight */
+        }
+
+        #about .about-text b {
+            font-weight: bold; /* Keep only specific titles bold */
+        }
+
+        #projects {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 0;
+            text-align: left;
+        }
+
+        #projects h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: left;
+        }
+
+        .portfolio-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .tile {
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tile h3 {
+            margin: 0.5rem 0 0.2rem;
+            font-size: 1rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .tile p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tile img {
+            width: 250px; /* Set your desired width */
+            height: 200px; /* Set your desired height */
+            object-fit: cover; /* Ensures the images maintain aspect ratio within the defined dimensions */
+            border-radius: 5px; /* Optional: keeps the rounded corners */
+        }
+
+        #contact {
+            max-width: 900px;
+            margin: 2rem auto;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #ccc;
+        }
+
+        #contact h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            display: inline-block;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        body.dark {
+            background: #121212;
+            color: #f4f4f4;
+        }
+
+        body.dark nav {
+            background: rgba(50, 50, 50, 0.9);
+        }
+
+        body.dark nav a {
+            color: #f4f4f4;
+        }
+
+        body.dark .toggle-btn {
+            background: #fff;
+            color: #333;
+        }
+
+        body.dark .landing {
+            background: #333;
+            color: white;
+        }
+
+        body.dark #about h2,
+        body.dark #about .about-text {
+            color: #f4f4f4;
+        }
+
+        body.dark .tile h3,
+        body.dark .tile p {
+            color: #f4f4f4;
+        }
+
+        body.dark footer {
+            background: #000;
         }
     </style>
 </head>
+
 <body>
+    <nav>
+        <div>Portfolio</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <button class="toggle-btn" onclick="toggleTheme()">Dark Mode</button>
+        </div>
+    </nav>
 
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <img src="images/profile.jpg" alt="Profile Picture">
-            <div class="intro">
-                <h1>András Tűű</h1>
-                <p>Data Scientist passionate about cleantech, analytics, and innovative solutions to environmental challenges.</p>
+    <section class="landing">
+        <h1>Andras Tuu</h1>
+        <p>Data Scientist | Astronomy Enthusiast</p>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>
+                    Hi, I am a Data Scientist with a growing focus on automation and image processing. I firmly believe that data and AI technology have the potential to revolutionize the way we work by reducing the burden of manual, repetitive tasks, such as data entry, image classification, or sentiment analysis on large volumes of text. By leveraging these tools, we can free up time for more creative and strategic endeavors.
+                    I am a strong advocate for data-driven decision-making. At my previous employer, Climate-KIC, I developed and implemented efficient data management systems, enabling better information flow and more streamlined reporting through dashboards connected to these systems, and I contributed to improving forecasting tools and creating insightful dashboards using Python, SQL, Power BI, and Tableau.
+                <p>
+                <p>    
+                    My professional experiences have allowed me to gain hands-on expertise in automating processes, advising on innovative solutions, and applying financial tools like DCF pricing and PCA to solve real-world problems. For example, I consulted on an app for my home city, Budapest, as part of a project with the mayor’s office.
+                    Beyond my professional life, I am deeply enthusiastic about traveling, exploring new cultures, and embracing new experiences. I actively seek opportunities that challenge my comfort zone, as I believe discomfort fosters growth, learning, and a deeper understanding of the world.
+                <p> 
             </div>
         </div>
+        <img src="images/profile.png" alt="Profile Picture">
+    </section>
 
-        <!-- Tiles Section -->
-        <div class="tiles">
-            <div class="tile">
-                <h3>Bachelor's Thesis</h3>
-                <a href="#bachelors-thesis">View Details</a>
-            </div>
-            <div class="tile">
-                <h3>Master's Thesis</h3>
-                <a href="#masters-thesis">View Details</a>
-            </div>
-            <div class="tile">
-                <h3>Projects</h3>
-                <a href="#projects">View Details</a>
-            </div>
-        </div>
-
-        <!-- Bachelor's Thesis Section -->
-        <div id="bachelors-thesis" class="section">
-            <h2>Bachelor's Thesis</h2>
-            <p>Your bachelor's thesis content goes here. Add descriptions, findings, and key takeaways.</p>
-        </div>
-
-        <!-- Master's Thesis Section -->
-        <div id="masters-thesis" class="section">
-            <h2>Master's Thesis</h2>
-            <p>Your master's thesis content goes here. Include an overview, objectives, and results.</p>
-        </div>
-
-        <!-- Projects Section -->
-        <div id="projects" class="section">
-            <h2>Projects</h2>
-            <div>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="portfolio-tiles">
+            <a href="masters-thesis.html" class="tile">
+                <h3>Galaxy Classification</h3>
+                <p>Galaxy classification using CNN and ViT models and image processing.</p>
+                <img src="images/galaxy-classification.png" alt="Galaxy Classification Project">
+            </a>
+            <a href="bachelors-thesis.html" class="tile">
+                <h3>Meme Stocks Sentiment Analysis</h3>
+                <p>Investigating the influence of Reddit sentiment on GME and AMC stock prices.</p>
+                <img src="images/stockmarket.png" alt="Bachelor’s Thesis Project">
+            </a>
+            <a href="url-scraper.html" class="tile">
                 <h3>Company URL Scraper</h3>
-                <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. <a href="projects.html#url-scraper">Read More</a></p>
-            </div>
-            <div>
+                <p>Scrape URLs for company names from search results using Python.</p>
+                <img src="images/scraper2.png" alt="Company URL Scraper">
+            </a>
+            <a href="annualsurvey.html" class="tile">
                 <h3>Annual Survey Analysis Dashboard</h3>
-                <p>A dashboard comparing survey data from 2022 and 2023. <a href="projects.html#annual-survey">Read More</a></p>
-            </div>
-            <div>
+                <p>Visualize survey data and insights into cleantech sectors.</p>
+                <img src="images/image1.png" alt="Annual Survey Analysis Dashboard">
+            </a>
+            <a href="avoided-emissions.html" class="tile">
                 <h3>Avoided Emissions Dashboard</h3>
-                <p>A dashboard showcasing cleantech emissions reductions and funding metrics. <a href="projects.html#avoided-emissions">Read More</a></p>
-            </div>
+                <p>Analyze GHG emissions reductions and funding allocations.</p>
+                <img src="images/avoideddb1.png" alt="Avoided Emissions Dashboard">
+            </a>
         </div>
-    </div>
+    </section>
 
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/andrás-tűű-99a0b61bb" target="_blank">
+                <img src="images/linkedin.png" alt="LinkedIn" class="contact-icon">
+            </a>
+            <a href="mailto:tuci60@gmail.com">
+                <img src="images/email.png" alt="Email" class="contact-icon">
+            </a>
+            <a href="https://github.com/andrastuu" target="_blank">
+                <img src="images/github.png" alt="GitHub" class="contact-icon">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Andras Tuu | Data Scientist
+    </a>
+        Image Credit: ESA/Hubble & NASA
+    </a>
+    </footer>
+
+    <script>
+        // Random Background Script
+        const images = ['images/space1.jpg', 'images/space3.jpg', 'images/space4.jpg'];
+        const landing = document.querySelector('.landing');
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        landing.style.background = `url('${randomImage}') no-repeat center center/cover`;
+
+        // Dark Mode Toggle Script
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+            const button = document.querySelector(".toggle-btn");
+            button.textContent = document.body.classList.contains("dark")
+                ? "Light Mode"
+                : "Dark Mode";
+        }
+    </script>
 </body>
+
 </html>

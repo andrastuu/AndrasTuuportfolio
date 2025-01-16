@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avoided Emissions Dashboard | András Tűű</title>
+    <link rel="stylesheet" href="stylessubpages.css">
+    <style>
+        .gallery {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 900px; /* Standardized maximum width */
+            height: 450px; /* Maintain aspect ratio */
+            object-fit: fill; /* Ensure the image fits nicely without distortion */
+            border-radius: 5px; /* Optional: round the corners */
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button.prev {
+            left: 10px;
+        }
+
+        .nav-button.next {
+            right: 10px;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            width: 100%;
+            max-width: 600px; /* Standardized maximum width */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure the image fits nicely without distortion */
+            border-radius: 5px; /* Optional: round the corners */
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>Portfolio</div>
+        <div>
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <section>
+            <h2>Avoided Emissions Dashboard</h2>
+            <p>This project focuses on analyzing and visualizing avoided greenhouse gas emissions and related funding allocations. It provides interactive dashboards to explore and understand emission trends effectively.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>Interactive dashboards for emissions and funding data.</li>
+                <li>Visual breakdowns of sector-specific emissions reductions.</li>
+                <li>Comprehensive metrics for stakeholders' decision-making processes.</li>
+            </ul>
+
+            <h3>Gallery</h3>
+            <p>Below are examples of the visualizations created for this project:</p>
+            <div class="gallery">
+                <img id="image-viewer" src="images/avoideddb1.png" alt="Avoided Emissions Visualization" onclick="toggleLightbox()">
+                <button class="nav-button prev" onclick="showImage(currentImage - 1)">&laquo;</button>
+                <button class="nav-button next" onclick="showImage(currentImage + 1)">&raquo;</button>
+            </div>
+        </section>
+
+        <div id="lightbox" class="lightbox">
+            <img id="lightbox-image" src="" alt="Large View">
+            <button class="nav-button prev" onclick="navigateInLightbox(-1)">&laquo;</button>
+            <button class="nav-button next" onclick="navigateInLightbox(1)">&raquo;</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Andras Tuu | Data Scientist
+    </footer>
+
+    <script>
+        let currentImage = 0;
+        const images = [
+            'images/avoideddb1.png',
+            'images/avoideddb2.png',
+            'images/avoideddb3.png',
+            'images/avoideddb4.png'
+        ];
+
+        function showImage(index) {
+            currentImage = (index + images.length) % images.length;
+            const imageViewer = document.getElementById('image-viewer');
+            imageViewer.src = images[currentImage];
+        }
+
+        function toggleLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+
+            lightboxImage.src = images[currentImage];
+            lightbox.classList.toggle('show');
+        }
+
+        function navigateInLightbox(direction) {
+            currentImage = (currentImage + direction + images.length) % images.length;
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = images[currentImage];
+        }
+
+        document.getElementById('image-viewer').addEventListener('click', toggleLightbox);
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox' || e.target.tagName === 'IMG') {
+                toggleLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

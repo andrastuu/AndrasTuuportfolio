@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company URL Scraper</title>
+    <link rel="stylesheet" href="stylessubpages.css"> <!-- Link to shared subpages stylesheet -->
+</head>
+<body>
+    <nav>
+        <div>Portfolio</div>
+        <div>
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <section>
+            <h2>Company URL Scraper</h2>
+<p>View the full project and code on GitHub: <a href="https://github.com/andrastuu/webscraping-solution" target="_blank">Web Scraping Solution Repository</a></p>
+
+            <p>This script scrapes URLs for a list of company names from DuckDuckGo search results. It reads a CSV file containing company names, processes them, and outputs the first URL found for each company. The script uses the <code>requests</code> library for HTTP requests and <code>BeautifulSoup</code> for HTML parsing.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li><strong>Cleans</strong> and processes company names to remove unwanted symbols.</li>
+                <li><strong>Randomizes User-Agent headers</strong> to mimic human-like requests and avoid getting blocked.</li>
+                <li><strong>Adds delay between requests</strong> to avoid being flagged by DuckDuckGo.</li>
+                <li>Outputs the URLs directly to the console.</li>
+            </ul>
+
+            <h3>Prerequisites</h3>
+            <ul>
+                <li><strong>Python 3.x</strong></li>
+                <li>Required Python libraries:
+                    <ul>
+                        <li><code>pandas</code></li>
+                        <li><code>requests</code></li>
+                        <li><code>beautifulsoup4</code></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Usage</h3>
+            <ol>
+                <li><strong>Modify the File Path:</strong>
+                    <p>Update the file path in the code:</p>
+                    <pre><code>df = pd.read_csv('path to your csv file')</code></pre>
+                </li>
+                <li><strong>Run the Script:</strong>
+                    <pre><code>python scraper.py</code></pre>
+                </li>
+                <li><strong>Check the Output:</strong>
+                    <p>The script will print each company name along with the first URL found from DuckDuckGo. Example output:</p>
+                    <pre>
+Company: Facebook
+URL: https://www.facebook.com
+Company: Google
+URL: https://www.google.com
+                    </pre>
+                </li>
+                <li>There is another example in this repository: <code>Results.png</code></li>
+            </ol>
+
+            <h3>Code Explanation</h3>
+            <ul>
+                <li><strong>Data Loading:</strong> The script reads the CSV file containing company names.</li>
+                <li><strong>Data Cleaning:</strong> It removes any special characters and non-UTF8 symbols from company names using regex.</li>
+                <li><strong>Web Scraping:</strong>
+                    <ul>
+                        <li>A scrape function is defined to make HTTP requests to DuckDuckGo’s HTML interface.</li>
+                        <li>A random User-Agent header is selected for each request to reduce the risk of being blocked.</li>
+                        <li><code>BeautifulSoup</code> parses the HTML response, extracting the first link that matches the <code>result__a</code> class, which represents search result links.</li>
+                    </ul>
+                </li>
+                <li><strong>Delay Between Requests:</strong> The script introduces a random delay between 5-12 seconds after each request to avoid overwhelming the search engine.</li>
+            </ul>
+
+            <h3>Additional Possibilities</h3>
+            <p>In order to scrape for location-specific results, change the search URL to:</p>
+            <pre><code>search_url = f"https://html.duckduckgo.com/html/?q={quote_plus(company_name)}&kl={region}"</code></pre>
+            <p>Here are some example region codes:</p>
+            <ul>
+                <li><code>us-en</code> - United States</li>
+                <li><code>uk-en</code> - United Kingdom</li>
+                <li><code>de-de</code> - Germany</li>
+                <li><code>fr-fr</code> - France</li>
+                <li><code>jp-ja</code> - Japan</li>
+                <li><code>es-es</code> - Spain</li>
+            </ul>
+
+            <h3>Disclaimer</h3>
+            <p>This is just a project to explore the limitations of the anti-scraping mechanisms of most search engines. Ethically and legally, web scraping can have consequences. I don't encourage web scraping in any form; this whole repository is simply for informational purposes only.</p>
+        </section>
+    </div>
+</body>
+</html>
