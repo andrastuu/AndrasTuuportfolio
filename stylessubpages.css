@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     background: #fff;
     line-height: 1.6;
@@ -103,3 +103,4 @@ footer {
     padding: 1rem;
     margin-top: 2rem;
 }
+

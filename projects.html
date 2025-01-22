@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Load and Apply Dark Mode State
+        window.onload = function () {
+            const darkMode = localStorage.getItem("darkMode");
+            if (darkMode === "enabled") {
+                document.body.classList.add("dark"); // Apply dark mode if previously enabled
+            }
+        };
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>András Tűű | Projects</title>
@@ -273,8 +283,28 @@
     </div>
 
     <footer>
-        &copy; 2024 András Tűű | Data Scientist
+        &copy; 2025 Andras Tuu | Data Scientist
     </footer>
+    <script>
+        // Dark Mode Toggle Script
+        function toggleTheme() {
+            const body = document.body;
+            const isDarkMode = body.classList.toggle("dark"); // Toggle dark mode class
+            localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled"); // Save the state
+            document.querySelector(".toggle-btn").textContent = isDarkMode ? "Light Mode" : "Dark Mode";
+        }
+    
+        // Sync Button State
+        window.onload = function () {
+            const darkMode = localStorage.getItem("darkMode");
+            if (darkMode === "enabled") {
+                document.body.classList.add("dark");
+                const toggleBtn = document.querySelector(".toggle-btn");
+                if (toggleBtn) toggleBtn.textContent = "Light Mode";
+            }
+        };
+    </script>
+    
 
 </body>
 </html>

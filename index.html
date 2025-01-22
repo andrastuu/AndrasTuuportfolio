@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             color: #333;
             background: #fff;
         }
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+        }
+
         .contact-links img {
         filter: invert(0); /* Default for light mode */
         transition: filter 0.3s; /* Smooth transition */
@@ -46,7 +52,7 @@
         }
 
         nav a:hover {
-            color: #007BFF;
+            color: #4e5153;
         }
 
         .toggle-btn {
@@ -66,7 +72,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 70vh;
+            height: 80vh;
             background: #f4f4f4; /* Default fallback */
             color: black;
             text-align: center;
@@ -254,22 +260,36 @@
         body.dark footer {
             background: #000;
         }
+        #travel {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 0;
+            text-align: left;
+        }
+
+        #travel h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: left;
+        }
+        
     </style>
 </head>
 
 <body>
     <nav>
-        <div>Data Science Portfolio</div>
+        <div></div>
         <div>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#travel">Personal</a>
             <button class="toggle-btn" onclick="toggleTheme()">Dark Mode</button>
         </div>
     </nav>
 
     <section class="landing">
         <h1>Andras Tuu</h1>
-        <p>Data Scientist | Astronomy Enthusiast</p>
+        <p>Data Scientist | Astronomy Enthusiast | Traveler</p>
     </section>
 
     <section id="about">
@@ -320,13 +340,25 @@
         </div>
     </section>
 
+    <section id="travel">
+        <h2>Personal</h2>
+        <p>The following part is about my travels in 2024, where I have decided to do my longest solo traveling trip yet. The whole jorney was an experience of a lifetime, and I feel incredibly lucky and grateful that I was able to do this trip, met amazing people, got to know different continents, cultures, struggles and ways of life. </p>
+        <div class="portfolio-tiles">
+            <iframe width="900" height="580" 
+                    src="https://www.polarsteps.com/AndrasTuu/14592496-brazil-argentina-chile-usa-japan/embed" 
+                    frameborder="0" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
     <section id="contact">
         <h2>Contact Me</h2>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/andrás-tűű-99a0b61bb" target="_blank">
                 <img src="images/linkedin.png" alt="LinkedIn" class="contact-icon">
             </a>
-            <a href="mailto:tuci60@gmail.com">
+            <a href="mailto:tuuandras99@gmail.com">
                 <img src="images/email.png" alt="Email" class="contact-icon">
             </a>
             <a href="https://github.com/andrastuu" target="_blank">
@@ -341,14 +373,20 @@
         Image Credit: ESA/Hubble & NASA
     </a>
     </footer>
-
     <script>
         // Random Background Script
-        const images = ['images/space1.jpg', 'images/space3.jpg', 'images/space4.jpg'];
+        const images = ['images/space1.jpg', 'images/space3.jpg', 'images/space2.jpg'];
         const landing = document.querySelector('.landing');
         const randomImage = images[Math.floor(Math.random() * images.length)];
         landing.style.background = `url('${randomImage}') no-repeat center center/cover`;
-
+    
+        // Set text color based on the background image
+        if (randomImage.includes('space2.jpg')) {
+            landing.style.color = '#F8F9FA';
+        } else {
+            landing.style.color = 'black';
+        }
+    
         // Dark Mode Toggle Script
         function toggleTheme() {
             document.body.classList.toggle("dark");
