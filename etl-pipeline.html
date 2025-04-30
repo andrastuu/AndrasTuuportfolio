@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ETL Pipeline Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      color: #333;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+    .github-link {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      margin-top: 1rem;
+      border-radius: 5px;
+    }
+    .github-link:hover {
+      background: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    table th {
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>ETL Pipeline Project</h1>
+  <p>This modular, cloud-ready ETL pipeline was developed for a data engineering assessment to unify internal conversion data with broker data for better analysis and decision-making.</p>
+
+  <a class="github-link" href="https://github.com/andrastuu/ETLpipeline" target="_blank">View on GitHub</a>
+
+  <h2>Stack & Architecture</h2>
+  <table>
+    <tr><th>Component</th><th>Purpose</th></tr>
+    <tr><td>Python</td><td>Core scripting for ETL logic</td></tr>
+    <tr><td>Airflow</td><td>Orchestrates DAGs (Extract → Transform → Load → Profile)</td></tr>
+    <tr><td>Docker</td><td>Isolates environment, supports CI/CD</td></tr>
+    <tr><td>S3</td><td>Stores final output for scale</td></tr>
+    <tr><td>SQLite</td><td>Lightweight local DB for inspection</td></tr>
+    <tr><td>YData Profiling</td><td>Automated EDA report</td></tr>
+    <tr><td>Pytest</td><td>Validates transformations</td></tr>
+  </table>
+
+  <h2>ETL Flow</h2>
+  <ol>
+    <li><strong>Extract</strong>: Ingests, normalizes formats, checks for required columns.</li>
+    <li><strong>Transform</strong>: Harmonizes countries/categories, flags matched rows, applies timestamp proximity matching.</li>
+    <li><strong>Load</strong>: Outputs to CSV, SQLite, and AWS S3.</li>
+    <li><strong>Profile</strong>: Generates an HTML report using YData Profiling.</li>
+  </ol>
+
+  <h2>Modular & Scalable Design</h2>
+  <ul>
+    <li>Each stage is independent and testable</li>
+    <li>Supports batch and micro-batch processing</li>
+    <li>Cloud-native and cost-conscious</li>
+  </ul>
+
+  <h2>Estimated S3 Storage Cost</h2>
+  <table>
+    <tr><th>Rows</th><th>Size</th><th>Monthly Cost</th></tr>
+    <tr><td>100,000</td><td>~100 MB</td><td>$0.0023</td></tr>
+    <tr><td>1,000,000</td><td>~1 GB</td><td>$0.023</td></tr>
+    <tr><td>10,000,000</td><td>~10 GB</td><td>$0.23</td></tr>
+  </table>
+
+  <h2>Runtime Cost via MWAA</h2>
+  <ul>
+    <li><strong>Daily (~2.5 hrs)</strong>: $20–30/month</li>
+    <li><strong>Hourly (~30 hrs)</strong>: $60–100/month</li>
+    <li><strong>Event-based</strong>: Lower cost via Lambda</li>
+  </ul>
+
+  <h2>How to Run</h2>
+  <pre>
+# Start containers
+docker compose up --build
+
+# Access Airflow at:
+http://localhost:8080 (user: airflow, pass: airflow)
+
+# Run the DAG
+Trigger manually or on a schedule
+  </pre>
+
+  <h2>Outputs</h2>
+  <ul>
+    <li>CSV: <code>output/final_output.csv</code></li>
+    <li>Unmatched: <code>output/unmatched_conversions.csv</code></li>
+    <li>DB: <code>output/matched_data.sqlite</code></li>
+    <li>HTML Report: <code>output/profiling_report.html</code></li>
+    <li>S3 Upload: <code>s3://your-bucket/matched_data.csv</code></li>
+  </ul>
+
+  <h2>Project Structure</h2>
+  <pre>
+brokerchooser-etl/
+├── etl/
+│   ├── extract.py, transform.py, load.py, profiling_task.py, aws.env
+├── dags/
+│   └── brokerchooser_dag.py
+├── tests/
+│   └── test_transform.py
+├── docker-compose.yml, Dockerfile, regions.yml
+├── output/
+  </pre>
+
+  <h2>Why These Tools?</h2>
+  <ul>
+    <li><strong>Airflow</strong>: Dependency-aware orchestration</li>
+    <li><strong>Docker</strong>: Reproducible dev environments</li>
+    <li><strong>S3</strong>: Cloud storage with APIs</li>
+    <li><strong>YData Profiling</strong>: Instant EDA</li>
+    <li><strong>Pytest + Pandera</strong>: Validate data assumptions</li>
+  </ul>
+
+  <h2>Final Notes</h2>
+  <p>
+    This pipeline is production-ready, testable, and modular. Each component is isolated for clarity and scalability, compatible with modern CI/CD workflows.
+  </p>
+
+  <p><strong>Author:</strong> Andras Tuu | <a href="https://www.linkedin.com/in/andrás-tűű-99a0b61bb" target="_blank">LinkedIn</a></p>
+  <a class="back-link" href="index.html">← Back to Portfolio</a>
+</body>
+</html>
